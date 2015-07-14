@@ -333,9 +333,20 @@ while decision is not "1" and decision is not "2":
         print("Cipher text :",dec_message)
         print ("********************************************************")
         print("\nYour Decrypted message is:")
+
+        plain = ""
+        for j, i in enumerate(dec):
+            if j < len(dec)-1:
+                if not (i == "X" and dec[j - 1] == dec[j + 1]):
+                    plain += i
+            else:
+                    plain += i
+        print(plain)
+        '''
         #To remove the char X from the decrypted message.
         x = re.sub(r'([ABCDEFGHIJKLMNOPQRSTUVWXYZ](X)[ABCDEFGHIJKLMNOPQRSTUVWXYZ])\1',"",dec)
         print(x)
+        '''
         print ("*******************The end******************************")
     # To Quit from the P.E.T       
     else:
