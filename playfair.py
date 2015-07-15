@@ -84,7 +84,7 @@ class PlayFair:
         self.generateSquare()
         self.transposeSquare()
 
-        self.Message = self.StrMan.cleanString(self.Message,{'up':1,'reSpaces':'','reNonAlphaNum':1,'spLetters':1})
+        self.Message = self.StrMan.cleanString(self.Message,{'up':1,'reSpaces':'','renum':1,'reNonAlphaNum':1,'spLetters':1})
         if (len(self.Message) % 2 == 1):
             self.Message += "X"
         #print(self.Message)
@@ -333,7 +333,7 @@ while decision is not "1" and decision is not "2":
         print("Cipher text :",dec_message)
         print ("********************************************************")
         print("\nYour Decrypted message is:")
-
+        
         plain = ""
         for j, i in enumerate(dec):
             if j < len(dec)-1:
@@ -342,9 +342,10 @@ while decision is not "1" and decision is not "2":
             else:
                     plain += i
         print(plain)
+
         '''
         #To remove the char X from the decrypted message.
-        x = re.sub(r'([ABCDEFGHIJKLMNOPQRSTUVWXYZ](X)[ABCDEFGHIJKLMNOPQRSTUVWXYZ])\1',"",dec)
+        x = re.sub(r'([ABCDEFGHIJKLMNOPQRSTUVWXYZ])X\1',r'\1\1',dec)
         print(x)
         '''
         print ("*******************The end******************************")
