@@ -20,6 +20,7 @@ symbols = """!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\] ^_`ab
 def keywordFromSeed(seed):
     Letters = []
     seed = int(seed)
+    #random.seed(seed)
 
     while seed > 0:
         Letters.insert(0,chr((seed % 100) % 26 + 65))
@@ -45,7 +46,7 @@ def printMatrix(v):
 
 ## Building a Vigenere matrix by populating random values at random positions using given symbols.
 
-def buildVigenere(symbols,seed):
+def buildVigenere(seed):
 
     n = len(symbols)
 
@@ -74,7 +75,7 @@ def buildVigenere(symbols,seed):
 ## Function to encrypt and decrypt the given message based on the given mode.
             
 def encrypt(m,mode,seed):
-    v = buildVigenere(symbols,seed)
+    v = buildVigenere(seed)
     #printMatrix(v)
     k = keywordFromSeed(seed)
     #print(k)
@@ -114,7 +115,7 @@ def encrypt(m,mode,seed):
 ##    else:
 def decrypt(m,mode,seed):
 
-    v = buildVigenere(symbols,seed)
+    v = buildVigenere(seed)
     k = keywordFromSeed(seed)
     if mode == 'decode':
         text2 = ""
