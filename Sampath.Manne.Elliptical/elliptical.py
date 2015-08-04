@@ -28,7 +28,7 @@ def findNewPoint(x1,x2,y1,y2,a,b,m):
         print("x3 = %s"%Fraction(x3).limit_denominator())
         
         y3 = m*(x3 - x1) + y1
-        #To represent the x3 in fraction.
+        #To represent the y3 in fraction.
         print("y3 = %s"%Fraction(y3).limit_denominator())
         
         print("")
